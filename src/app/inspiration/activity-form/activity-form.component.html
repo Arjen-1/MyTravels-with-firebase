@@ -1,0 +1,18 @@
+<form [formGroup]="inspirationForm" class="editingForm" >
+        <mat-form-field>  
+                <mat-label>Name of activity</mat-label>
+                <input type="text" matInput placeholder="describe activity" formControlName="activity">
+        </mat-form-field>
+        <mat-form-field> 
+                <mat-label>Tripadvisor link</mat-label>
+                <input type="text" matInput placeholder="insert tripadvisor url" formControlName="link">
+        </mat-form-field> 
+        <div class="form__actions">
+                        <button mat-raised-button color="primary" (click)="emitFormValues()">Edit</button> 
+                        <button mat-raised-button  (click)="cancel()">Cancel</button> 
+        </div>
+                
+        
+     
+ 
+</form>

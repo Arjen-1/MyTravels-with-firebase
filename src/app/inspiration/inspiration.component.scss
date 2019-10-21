@@ -1,0 +1,77 @@
+.main__section{
+    margin-left: 2rem;
+    margin-right: 2rem;
+
+    @media screen and (max-width:640px){
+        margin-left: 1rem;
+    margin-right: 1rem;
+    }
+}
+
+.inspirationForm{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #3f51b52c;
+}
+
+mat-card{
+    padding: 2rem;
+    margin-bottom: 1rem;
+    background-color: rgba(0, 0, 0, 0.027);
+}
+
+.critical__button{
+    margin-right: 1rem;
+}
+
+.title__container {
+    border-bottom: 1px solid #00000030;
+}
+
+.top__title{
+    margin-bottom: 0;
+    
+    opacity: 0.4;
+}
+
+.top__title-country{
+    margin-top: 0;
+}
+
+.secondary__title{
+    margin-bottom: 0;
+}
+
+.title--faded{ 
+    margin-top: 0;
+    opacity: 0.4;
+}
+
+
+
+@media screen and (max-width:640px) {
+    .tabgroup__card{
+        padding:1rem;
+    }
+
+    .critical__button, .advisor__button{
+        margin-right: 0;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .advisor__button{ 
+        //
+    }
+
+    
+
+    
+} 
+
+
+@media screen and (min-width:641px) {
+
+
+}

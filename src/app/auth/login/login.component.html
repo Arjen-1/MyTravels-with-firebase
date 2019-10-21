@@ -1,0 +1,40 @@
+<section>
+        <form [formGroup]="loginForm" class="signup__form" (ngSubmit)="onSubmit()">
+            <h3>Log in</h3>
+            <mat-form-field>
+                <mat-label>Email:</mat-label>
+                <input matInput type="text" placeholder="email" formControlName="email">
+                <mat-error *ngIf="loginForm.controls.email.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched )"
+                class="">
+                <span *ngIf="loginForm.controls.email.errors.required">
+                    email is required.
+                </span>
+                <span *ngIf="loginForm.controls.email.errors.minlength">
+                    email must be at least 4 characters long.
+                </span>
+                <span *ngIf="loginForm.controls.email.errors.minlength">
+                    email must be at least 4 characters long.
+                </span>
+                <span *ngIf="loginForm.controls.email.errors.email">
+                    You must enter a valid email
+                </span>
+                </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Password:</mat-label>
+                <input matInput type="text" placeholder="password" formControlName="password">
+                <mat-error *ngIf="loginForm.controls.password.invalid && (loginForm.controls.password.dirty || loginForm.controls.password.touched )"
+                    class="">
+                    <span *ngIf="loginForm.controls.password.errors.required">
+                        Password is required.
+                    </span>
+                    <span *ngIf="loginForm.controls.password.errors.minlength">
+                        Password must be at least 1 characters long.
+                    </span>
+                </mat-error>
+            </mat-form-field>
+    
+            <button *ngIf="!isLoading" mat-raised-button type="submit" color="primary" [disabled]="!loginForm.valid">Sign me up</button>
+            <mat-spinner style="margin:0 auto;" *ngIf="isLoading"></mat-spinner>
+        </form>
+    </section>

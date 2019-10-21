@@ -1,0 +1,10 @@
+<mat-card class="spinner_card">
+    <mat-progress-spinner mode="determinate" [value]="spinnerValue"></mat-progress-spinner>
+    <h4 class="spinner__text" *ngIf="spinnerValue <= 99">Calculating days until {{travelData.travelDestination}}</h4>
+
+    <div class="loader" *ngIf="spinnerValue >= 100">
+            <h4>Count down until {{travelData.travelDestination}}</h4>
+            <mat-progress-bar mode="determinate" [value]="loaderValue"></mat-progress-bar>
+            <mat-card-content *ngIf="loaderValue >= maxLoaderValue"> {{daysBetween}} days remaining until {{travelData.travelDestination}}!</mat-card-content>
+    </div>
+</mat-card>

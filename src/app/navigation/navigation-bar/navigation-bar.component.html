@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="navigation__bar">
+        <div class="logo" [routerLink]="['/inspiration']">MyTravels</div>
+        <div class="mobile">
+                        <div *ngIf="isAuth" class="link__container" (click)="toggleMenu()"><mat-icon  aria-label="Example home icon">menu</mat-icon></div>
+                        
+        </div>
+        <div class="large">
+                        <div *ngIf="isAuth" class="link__container"><a [routerLink]="['/inspiration']"  class="link__anchor">Inspiration</a></div>
+                        <div *ngIf="isAuth" class="link__container"><a [routerLink]="['/count-down']"  class="link__anchor">Count Down</a></div>
+                        <div *ngIf="!isAuth" class="link__container"><a [routerLink]="['/login']"  class="link__anchor">Log in</a></div>
+                        <div *ngIf="!isAuth" class="link__container"><a [routerLink]="['/signup']"  class="link__anchor">Sign up</a></div>
+                        <div *ngIf="isAuth" class="link__container"><a [routerLink]="['/login']" class="link__anchor"  (click)="onLogout()">Log out</a></div>
+        </div>
+        
+</mat-toolbar>
+<mat-toolbar *ngIf="mobileMenuToggled" class="mobile__toolbar" color="primary">
+                <div (click)="closeMenu()" *ngIf="isAuth" class="link__container"><a [routerLink]="['/inspiration']"  class="link__anchor">Inspiration</a></div>
+                <div (click)="closeMenu()" *ngIf="isAuth" class="link__container"><a [routerLink]="['/count-down']"  class="link__anchor">Count Down</a></div>
+                <div (click)="closeMenu()" *ngIf="!isAuth" class="link__container"><a [routerLink]="['/login']"  class="link__anchor">Log in</a></div>
+                <div (click)="closeMenu()" *ngIf="!isAuth" class="link__container"><a [routerLink]="['/signup']"  class="link__anchor">Sign up</a></div>
+                <div (click)="closeMenu()" *ngIf="isAuth" class="link__container"><a [routerLink]="['/login']" class="link__anchor"  (click)="onLogout()">Log out</a></div>
+</mat-toolbar>

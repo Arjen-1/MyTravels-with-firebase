@@ -1,0 +1,54 @@
+.navigation__bar .logo{
+        margin-right: auto;
+}
+
+.navigation__bar .mobile{
+    display: none;
+
+    
+    @media screen and (max-width:640px) {
+        display: flex;
+        flex-direction: column;
+
+        
+    }
+}
+
+.navigation__bar .large{
+    display: none;
+    @media screen and (min-width:641px) {
+
+        display: flex;
+        flex-direction: row;
+        justify-content:flex-end;
+
+        .link__container {
+            margin-left: 1rem;
+        }
+    }
+
+    
+} 
+
+mat-toolbar a{
+    text-decoration: none;
+    color:white;
+
+}
+
+mat-toolbar a:active, mat-toolbar a:hover{ 
+    color:rgba(255, 255, 255, 0.479);
+
+}
+
+.mobile__toolbar{
+        display: flex;
+        flex-direction: column; 
+        opacity: 0.9;
+        height: auto;
+
+}
+
+.mobile__toolbar div{
+    margin: 0.5rem auto;
+}

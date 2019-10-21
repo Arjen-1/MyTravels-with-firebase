@@ -1,0 +1,92 @@
+<div class="journey__container"  *ngFor="let country of userSelectedCountry_data | async">
+     <div class="filtered__journey" > 
+            
+                    
+            <section class="main__section">  
+
+                    <div class="title__container" >  
+                            <h5 class="top__title">Your travels in</h5>
+                            <h1 class="top__title-country">{{country.name}} </h1>
+                    </div>
+
+                    
+                    <h3 class="secondary__title">Your activities</h3>
+                    <h5 class="title--faded">sorted by the region or location</h5>
+                    <mat-tab-group (selectedTabChange)="onSwitchTab($event)">
+                            <mat-tab   label="{{ place.name }}" *ngFor="let place of all_places_whitin_userSel_country | async"  > 
+                                <mat-card class="tabgroup__card"> 
+                                    <mat-card-title > 
+                                        {{place.name }}
+                                    </mat-card-title>
+                                    <mat-card-content> 
+                                         <div  *ngFor="let ac of activities_userSelectedCountry_ | async " > 
+                                             <mat-card *ngIf="ac.placewithincountry == place.id"> 
+                                                    <mat-card-title>{{ac.name}} </mat-card-title>
+                                                    <a class="advisor__button" mat-raised-button color="primary" *ngIf="ac?.url " href="{{ac?.url}} ">Check on tripadvisor</a> 
+                                                    <br>
+                                                    <br>
+                                                    <button class="critical__button" mat-raised-button  (click)="editActivity(ac.id, ac.name, ac.url )">Edit </button>
+                                                    <button class="critical__button" mat-raised-button (click)="deletingCheck(ac.id, ac.name, ac.url)">Delete</button>
+                                             </mat-card>
+                                        </div> 
+                                    
+                                    </mat-card-content> 
+                                    <mat-card-actions >
+                                        
+                                        <form [formGroup]="inspirationForm" class="inspirationForm" >
+                                                <h5>Adding a new activity</h5>
+                                                <mat-form-field> 
+                                                        <mat-label>Name of activity</mat-label>
+                                                        <input type="text" matInput placeholder="describe activity" formControlName="activity">
+                                                </mat-form-field>
+                                                <mat-form-field> 
+                                                        <mat-label>Tripadvisor link</mat-label>
+                                                        <input type="text" matInput placeholder="insert tripadvisor url" formControlName="link">
+                                                </mat-form-field> 
+                        
+                                                
+                                                <button mat-raised-button (click)="addNewActivity()">Add new activity</button>
+                                        </form>
+                                        
+                                    </mat-card-actions>
+                                </mat-card>  
+                            </mat-tab>
+                    </mat-tab-group>
+                </section>
+
+     </div>
+        
+
+
+ </div>
+ 
+ 
+
+
+<!-- 
+<mat-card> 
+        <mat-card-title>
+            Bangkok
+        </mat-card-title>
+        <mat-card-content>
+            <mat-card *ngFor="let item of trip.bangkok">Activity: {{item.activity}}  | <a href="{{item.link}}">Check on tripadvisor</a> </mat-card>
+        </mat-card-content>
+        <mat-card-actions >
+            
+            <form [formGroup]="inspirationForm" class="inspirationForm" >
+                    <h5>Adding a new activity</h5>
+                    <mat-form-field> 
+                            <mat-label>Name of activity</mat-label>
+                            <input type="text" matInput placeholder="describe activity" formControlName="activity">
+                    </mat-form-field>
+                    <mat-form-field> 
+                            <mat-label>Tripadvisor link</mat-label>
+                            <input type="text" matInput placeholder="insert tripadvisor url" formControlName="link">
+                    </mat-form-field>
+
+                    
+                    <button mat-raised-button (click)="addNewActivity()">Add new activity</button>
+            </form>
+            
+        </mat-card-actions>
+    </mat-card>   -->
